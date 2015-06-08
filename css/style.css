@@ -1,0 +1,126 @@
+@font-face {
+    font-family: helveticaNeue;
+    src: url(../fonts/helveticaNeue.eot);
+    src: local(helveticaNeue), url('../fonts/helveticaNeue.ttf') format('truetype');
+}
+
+body		{background-color:#000E21;text-align:center; margin:0px; padding:0px;font: normal 16px Helvetica; }
+.container	
+{
+	width:800px;
+	height:500px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-250px 0 0 -400px;
+	font-family: helveticaNeue; 
+	color:#fff;
+	font-size:14px;
+}
+#bottom	{z-index:1000;height:43px;margin-top:207px;}
+
+#div_main	{background:url(../img/comingsoon.png);}
+#div_engraved	{background:url(../img/img_engraved.png);}
+#div_graphic_design	{background:url(../img/img_graphic_design.png);}
+#div_fashion_style	{background:url(../img/img_fashion_style.png);}
+#div_digital_print	{background:url(../img/img_digital_print.png);}
+#div_3d_print	{background:url(../img/img_3d_print.png);}
+#div_furnishing_accessories	{background:url(../img/img_furnishing_accessories.png);}
+#div_advertising	{background:url(../img/img_advertising.png);}
+#div_contatti	{background:url(../img/img_engrave.png);}
+
+#footer	{position:absolute;right:0px;bottom:0px;font-size:12px}
+
+dl.image_map {display:block; width:800px; height:370px; position:relative; margin:0px;padding:0px;}
+span.map_engraved {left:232px; top:0px; background:transparent;cursor:pointer;}
+span.map_engraved {display:block; width:156px; height:0; padding-top:30px; overflow:hidden; position:absolute;}
+span.map_graphic_design {left:469px; top:33px; background:transparent;cursor:pointer;}
+span.map_graphic_design {display:block; width:238px; height:0; padding-top:30px; overflow:hidden; position:absolute;}
+span.map_fashion_style {left:151px; top:65px; background:transparent;cursor:pointer;}
+span.map_fashion_style {display:block; width:214px; height:0; padding-top:30px; overflow:hidden; position:absolute;}
+span.map_digital_print {left:288px; top:97px; background:transparent;cursor:pointer;}
+span.map_digital_print {display:block; width:198px; height:0; padding-top:30px; overflow:hidden; position:absolute;}
+span.map_furnishing_accessories {left:48px; top:161px; background:transparent;cursor:pointer;}
+span.map_furnishing_accessories {display:block; width:375px; height:0; padding-top:30px; overflow:hidden; position:absolute;}
+span.map_advertising {left:423px; top:193px; background:transparent;cursor:pointer;}
+span.map_advertising {display:block; width:187px; height:0; padding-top:30px; overflow:hidden; position:absolute;}
+span.map_3d_print {left:534px; top:128px; background:transparent;cursor:pointer;}
+span.map_3d_print {display:block; width:138px; height:0; padding-top:32px; overflow:hidden; position:absolute;}
+
+.home_button{cursor:pointer;position:absolute;bottom:0px;left:0px}
+.contatti_button{cursor:pointer;position:absolute;bottom:0px;left:50px;}
+#fbon,#fboff
+{
+	cursor:pointer;
+	position:absolute;
+	bottom:0px;
+	left:100px;
+	width:47px;
+	height:43px;
+}
+
+#fbon.fbdefault{background: url('../img/fbengrave1.png') -329px 0;}
+#fbon.fbengraved{background: url('../img/fbengrave1.png') 0px 0;}
+#fbon.fbgraphic_design{background: url('../img/fbengrave1.png') -47px 0;}
+#fbon.fbfashion_style{background: url('../img/fbengrave1.png') -94px 0;}
+#fbon.fbdigital_print{background: url('../img/fbengrave1.png') -141px 0;}
+#fbon.fb3d_print{background: url('../img/fbengrave1.png') -188px 0;}
+#fbon.fbfurnishing_accessories{background: url('../img/fbengrave1.png') -235px 0;}
+#fbon.fbadvertising{background: url('../img/fbengrave1.png') -282px 0;}
+
+
+.button {cursor:pointer;}
+.text_contatti{white-space:nowrap;line-height:1.7;position:absolute;bottom:0px;right:0px;width:300px;font-size:12px;text-align:left;}
+
+.modules{line-height:1.8;text-align:left;position:absolute}
+.text_engraved	{left:237px; top:-26px;}
+.text_engraved p	{color:#A2CD3F;line-height:1;}
+.text_graphic_design	{left:473px; top:6px;}
+.text_graphic_design p	{color:#EE4C5D;line-height:1;}
+.text_fashion_style	{left:154px; top:38px;}
+.text_fashion_style p	{color:#7A8EC4;line-height:1;}
+.text_digital_print	{left:292px; top:71px;}
+.text_digital_print p	{color:#A5958B;line-height:1;}
+.text_3d_print	{left:539px; top:102px;}
+.text_3d_print p	{color:#06B7EA;line-height:1;}
+.text_furnishing_accessories	{left:52px; top:134px; }
+.text_furnishing_accessories p	{color:#F0C23F;line-height:1;}
+.text_advertising	{left:428px; top:167px;}
+.text_advertising p	{color:#702943;line-height:1;}
+
+#navigation
+{
+	position: absolute;
+	bottom:0px;
+	right:0px;
+	width:300px;
+	height:47px;
+}
+
+.navigation_engraved{cursor:pointer;position:absolute;bottom:0px;left:0px;}
+.navigation_engraved_big{cursor:pointer;position:absolute;bottom:-5px;left:-5px;}
+.navigation_graphic_design{cursor:pointer;position:absolute;bottom:0px;left:45px;}
+.navigation_graphic_design_big{cursor:pointer;position:absolute;bottom:-5px;left:40px;}
+.navigation_fashion_style{cursor:pointer;position:absolute;bottom:0px;left:90px;}
+.navigation_fashion_style_big{cursor:pointer;position:absolute;bottom:-5px;left:85px;}
+.navigation_digital_print{cursor:pointer;position:absolute;bottom:0px;left:135px;}
+.navigation_digital_print_big{cursor:pointer;position:absolute;bottom:-5px;left:130px;}
+.navigation_3d_print{cursor:pointer;position:absolute;bottom:0px;left:180px;}
+.navigation_3d_print_big{cursor:pointer;position:absolute;bottom:-5px;left:175px;}
+.navigation_furnishing_accessories{cursor:pointer;position:absolute;bottom:0px;left:225px;}
+.navigation_furnishing_accessories_big{cursor:pointer;position:absolute;bottom:-5px;left:220px;}
+.navigation_advertising{cursor:pointer;position:absolute;bottom:0px;left:270px;}
+.navigation_advertising_big{cursor:pointer;position:absolute;bottom:-5px;left:265px;}
+
+#loader
+{
+	color:#fff;
+	font-size:25px;
+	position: absolute;
+	left:50%;
+	top:50%;
+	margin:-20px 0 0 -165px;
+	width:310px;
+	height:40px;
+	background:url(../img/loader_small.gif);}
+}
