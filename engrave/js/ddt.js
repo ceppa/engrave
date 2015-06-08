@@ -25,8 +25,8 @@ function fornitore_change()
 function ddt_add()
 {
 	showWait();
-	$.post('include/ddt.php', { op: "add" }, 
-		function(data) 
+	$.post('include/ddt.php', { op: "add" },
+		function(data)
 		{
 			$('#titolo').html('DDT - nuovo');
 			$('#content').html(data);
@@ -43,8 +43,8 @@ function ddt_add()
 function ddt_edit()
 {
 	showWait();
-	$.post('include/ddt.php', { op: "edit", id:  flexiItemId}, 
-		function(data) 
+	$.post('include/ddt.php', { op: "edit", id:  flexiItemId},
+		function(data)
 		{
 			$('#titolo').html('DDT - modifica');
 			$('#content').html(data);
@@ -83,17 +83,18 @@ function ddt_form_cancel()
 function ddt_delete()
 {
 	var id=flexiItemId.substring(3);
-	if (confirm("Rimuovo il DDT selezionato?")) 
-	{ 
+	if (confirm("Rimuovo il DDT selezionato?"))
+	{
 		showWait();
-		$.post('include/ddt.php', 
-			{ 
-				op: "del", 
+		$.post('include/ddt.php',
+			{
+				op: "del",
 				id: id
-			}, 
-				function(data) 
+			},
+				function(data)
 				{
 					$("#flexi_table").flexReload();
+					showflexi();
 				}
 			)
 	}
@@ -106,126 +107,126 @@ function ddt_flexi()
 	$("#flexi_table").flexigrid({
 		url: 'include/ddt.php',
 			dataType: 'json',
-			colModel : 
+			colModel :
 			[
 				{
-					display: 'Numero', 
-					name : 'numero', 
-					width : 50, 
-					sortable : true, 
+					display: 'Numero',
+					name : 'numero',
+					width : 50,
+					sortable : true,
 					align: 'left'
 				},
 				{
-					display: 'Cliente/Fornitore', 
-					name : 'cliente_fornitore', 
-					width : 205, 
-					sortable : true, 
+					display: 'Cliente/Fornitore',
+					name : 'cliente_fornitore',
+					width : 205,
+					sortable : true,
 					align: 'left'
 				},
 				{
-					display: 'Data', 
-					name : 'data', 
-					width : 110, 
-					sortable : true, 
+					display: 'Data',
+					name : 'data',
+					width : 110,
+					sortable : true,
 					align: 'left'
 				},
 				{
-					display: 'Data trasporto', 
-					name : 'data_trasporto', 
-					width : 110, 
-					sortable : true, 
+					display: 'Data trasporto',
+					name : 'data_trasporto',
+					width : 110,
+					sortable : true,
 					align: 'left'
 				},
 				{
-					display: 'Num Colli', 
-					name : 'num_colli', 
-					width : 40, 
-					sortable : true, 
+					display: 'Num Colli',
+					name : 'num_colli',
+					width : 40,
+					sortable : true,
 					align: 'left'
 				},
 				{
-					display: 'Peso', 
-					name : 'peso', 
-					width : 40, 
-					sortable : true, 
+					display: 'Peso',
+					name : 'peso',
+					width : 40,
+					sortable : true,
 					align: 'left'
 				},
 				{
-					display: 'Aspetto', 
-					name : 'merce_aspetto', 
-					width : 110, 
-					sortable : true, 
+					display: 'Aspetto',
+					name : 'merce_aspetto',
+					width : 110,
+					sortable : true,
 					align: 'left'
 				},
 				{
-					display: 'Trasporto a cura', 
-					name : 'corriere', 
-					width : 110, 
-					sortable : true, 
+					display: 'Trasporto a cura',
+					name : 'corriere',
+					width : 110,
+					sortable : true,
 					align: 'left'
 				},
 				{
-					display: 'Causale', 
-					name : 'causale', 
-					width : 210, 
-					sortable : true, 
+					display: 'Causale',
+					name : 'causale',
+					width : 210,
+					sortable : true,
 					align: 'left'
 				}
 			],
-			buttons : 
+			buttons :
 			[
 				{
-					name: 'Add', 
-					bclass: 'add', 
+					name: 'Add',
+					bclass: 'add',
 					onpress : ddt_add
 				},
 				{
-					name: 'Edit', 
-					bclass: 'edit', 
+					name: 'Edit',
+					bclass: 'edit',
 					onpress : ddt_edit
 				},
 				{
-					name: 'Print', 
-					bclass: 'print', 
+					name: 'Print',
+					bclass: 'print',
 					onpress : ddt_print
 				},
 				{
-					name: 'Delete', 
-					bclass: 'delete', 
+					name: 'Delete',
+					bclass: 'delete',
 					onpress : ddt_delete
 				},
 				{
 					separator: true
-				}			
+				}
 			],
-			searchitems : 
+			searchitems :
 			[
 				{
-					display: 'Numero', 
+					display: 'Numero',
 					name : 'numero',
 					isdefault: true
 				},
 				{
-					display: 'Data DDT', 
+					display: 'Data DDT',
 					name : 'data'
 				},
 				{
-					display: 'Data trasporto', 
+					display: 'Data trasporto',
 					name : 'data_trasporto'
 				},
 				{
-					display: 'Cliente/Fornitore', 
+					display: 'Cliente/Fornitore',
 					name : 'cliente_fornitore'
 				},
 				{
-					display: 'Trasporto a cura', 
+					display: 'Trasporto a cura',
 					name : 'corriere'
 				}
 			],
 			params:
 			[
 				{
-					name:'op', 
+					name:'op',
 					value: 'list'
 				}
 			],
@@ -327,7 +328,7 @@ function ddt_print()
     document.body.appendChild(mapForm);
 
     map = window.open("", "Map", "status=0,title=0,height=600,width=800,scrollbars=1");
-	if (map) 
+	if (map)
 		mapForm.submit();
 	else
 		alert('You must allow popups for this map to work.');

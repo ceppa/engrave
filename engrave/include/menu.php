@@ -31,7 +31,8 @@ function display_admin_nav()
 					"toolbar_fatture"=>"fatture",
 					"toolbar_ricevute"=>"ricevute",
 					"toolbar_ddt"=>"DDT",
-					"toolbar_preventivi"=>"preventivi"
+					"toolbar_preventivi"=>"preventivi",
+					"toolbar_acquisti"=>"acquisti"
 				)
 			),
 			"toolbar_anagrafica"=>array
@@ -98,4 +99,3 @@ function display_admin_nav()
 	echo '</ul>';
 }
 ?>
-

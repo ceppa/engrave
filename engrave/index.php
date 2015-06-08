@@ -48,6 +48,7 @@ function do_header()
 	<script type="text/javascript" src="js/fatture.js"></script>
 	<script type="text/javascript" src="js/ricevute.js"></script>
 	<script type="text/javascript" src="js/ddt.js"></script>
+	<script type="text/javascript" src="js/acquisti.js"></script>
 	<script type="text/javascript" src="js/cassa.js"></script>
 	<script type="text/javascript" src="js/mailing_list.js"></script>
 	<script type="text/javascript" src="js/preventivi.js"></script>
@@ -69,7 +70,7 @@ function do_header()
 				<td id="titolo">
 				</td>
 				<td style="width:25%;height:<?=$height?>px;text-align:right; margin:0px; padding:0px; vertical-align: top;white-space: nowrap;">
-					<input type="button" class="button" value="Esci" 
+					<input type="button" class="button" value="Esci"
 						name="logout" onclick="do_logout()"/>
 				</td>
 			</tr>
