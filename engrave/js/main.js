@@ -51,11 +51,11 @@ function display_admin_nav()	//async
 {
 	$.ajax({
 			type:'POST',
-			url:'include/main.php', 
+			url:'include/main.php',
 			data:{ op: "display_admin_nav" },
 			cache: false,
 			async: false
-		}).done(function(data) 
+		}).done(function(data)
 			{
 				$('#admin_nav').html(data);
 
@@ -66,7 +66,7 @@ function run_module(module)
 {
 	showWait();
 	eval(module+"()");
-	
+
 }
 
 function showform()
@@ -74,7 +74,7 @@ function showform()
 	$("#flexi").hide();
 	$("#content").show();
 	$(".date_class").attr('readonly', true);
-	$(".date_class").datepicker({ dateFormat: "yy-mm-dd" })
+	$(".date_class").datepicker({ dateFormat: "yy-mm-dd",changeYear: true,changeMonth: true,showButtonPanel: true })
 }
 
 function showflexi()
@@ -100,7 +100,7 @@ function dateNow()
 	if(dd<10)
 		dd='0'+dd
 
-	if(mm<10) 
+	if(mm<10)
 		mm='0'+mm
 
 	return yyyy+'-'+mm+'-'+dd;

@@ -1,4 +1,4 @@
-var AcquistiNotNull=new Array("numero_fattura","data_fattura","data_pagamento","imponibile","valore_fattura");
+var AcquistiNotNull=new Array("data_fattura","valore_fattura");
 var AcquistiMagZero=new Array("id_fornitore","id_modalita_pagamento","id_tipologia");
 
 function list_acquisti()
@@ -24,9 +24,10 @@ function acquisti_add()
 			$('#content').html(data);
 			highlightMandatory();
 			$('#data_ddt').after("<input type='button' value='clr' onclick='$(\"#data_ddt\").val(\"\")')>");
+			$('#data_pagamento').after("<input type='button' value='clr' onclick='$(\"#data_pagamento\").val(\"\")')>");
 			$('#submit').bind('click', acquisti_form_submit);
 			$('#cancel').bind('click', acquisti_form_cancel);
-			$('#imponibile,#valore_fattura').keydown(
+			$('#valore_fattura').keydown(
 				function(e)
 				{
 					return onlyNumbersFloat(e,this);
@@ -48,15 +49,15 @@ function acquisti_edit()
 			$('#content').html(data);
 			highlightMandatory();
 			$('#data_ddt').after("<input type='button' value='clr' onclick='$(\"#data_ddt\").val(\"\")')>");
+			$('#data_pagamento').after("<input type='button' value='clr' onclick='$(\"#data_pagamento\").val(\"\")')>");
 			$('#submit').bind('click', acquisti_form_submit);
 			$('#cancel').bind('click', acquisti_form_cancel);
-			$('#imponibile,#valore_fattura').keydown(
+			$('#valore_fattura').keydown(
 				function(e)
 				{
 					return onlyNumbersFloat(e,this);
 				}
 			);
-			$('#imponibile').val($('#imponibile').val().replace(".", ","));
 			$('#valore_fattura').val($('#valore_fattura').val().replace(".", ","));
 
 			showform();
@@ -72,7 +73,6 @@ function acquisti_form_submit()
 
 	if(ok)
 	{
-		$('#imponibile').val($('#imponibile').val().replace(",", "."));
 		$('#valore_fattura').val($('#valore_fattura').val().replace(",", "."));
 		form_post("acquisti");
 		$("#flexi_table").flexReload();
@@ -164,6 +164,20 @@ function acquisti_flexi()
 					width : 150,
 					sortable : true,
 					align: 'left'
+				},
+				{
+					display: 'Imponibile',
+					name : 'imponibile',
+					width : 150,
+					sortable : true,
+					align: 'left'
+				},
+				{
+					display: 'Valore Fattura',
+					name : 'valore_fattura',
+					width : 150,
+					sortable : true,
+					align: 'left'
 				}
 			],
 			buttons :
@@ -222,6 +236,14 @@ function acquisti_flexi()
 				{
 					display: 'Tipologia',
 					name : 'acquisti_tipologie.descrizione'
+				},
+				{
+					display: 'Imponibile',
+					name : 'imponibile'
+				},
+				{
+					display: 'Valore Fattura',
+					name : 'valore_fattura'
 				}
 			],
 			params:

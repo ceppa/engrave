@@ -41,6 +41,8 @@ switch($op)
 			acquisti_modalita_pagamento.descrizione AS modalita_pagamento,
 			acquisti.data_pagamento,
 			acquisti.porto_assegnato,
+			acquisti.imponibile,
+			acquisti.valore_fattura,
 			acquisti_tipologie.descrizione AS tipologia
 				FROM acquisti
 					LEFT JOIN anag_fornitori
@@ -72,7 +74,9 @@ switch($op)
 					$row['modalita_pagamento'],
 					$row['data_pagamento'],
 					$row['porto_assegnato'],
-					$row['tipologia']
+					$row['tipologia'],
+					$row['imponibile'],
+					$row['valore_fattura']
 				)
 			);
 		}
@@ -95,7 +99,6 @@ switch($op)
 				,"link"=>array("table"=>"acquisti_modalita_pagamento"
 				,"id"=>"id","text"=>"descrizione")),
 			"data_pagamento"=>array("value"=>"","label"=>"Data Pagamento"),
-			"imponibile"=>array("value"=>"","label"=>"Imponibile"),
 			"valore_fattura"=>array("value"=>"","label"=>"Valore Fattura"),
 			"porto_assegnato"=>array("value"=>"","label"=>"Porto Assegnato"),
 			"descrizione"=>array("value"=>"","label"=>"Descrizione"),
