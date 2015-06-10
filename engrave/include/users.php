@@ -24,7 +24,7 @@ function showList()
 	<table class="plot">
 		<tr class="footer">
 			<td colspan="11" style="cursor:pointer" onclick="users_add()">
-					<img src="img/b_add.png" alt="Nuovo" 
+					<img src="img/b_add.png" alt="Nuovo"
 						style="vertical-align:middle" title="Nuovo" />
 					&nbsp;Nuovo utente
 			</td>
@@ -76,7 +76,7 @@ function showList()
 	}?>
 		<tr class="footer">
 			<td colspan="11" style="cursor:pointer" onclick="users_add()">
-					<img src="img/b_add.png" alt="Nuovo" 
+					<img src="img/b_add.png" alt="Nuovo"
 						style="vertical-align:middle" title="Nuovo" />
 					&nbsp;Nuovo utente
 			</td>
@@ -97,7 +97,7 @@ if(($op=="checkduplicate")&&(isset($_REQUEST["user"])))
 	$result=do_query($query,$conn);
 	$rows=result_to_array($result,true);
 	closedb($conn);
-	
+
 	echo count($rows);
 	die();
 }
@@ -205,7 +205,7 @@ elseif(($op=="edit")||($op=="add"))
 				<?}?>
 			<tr class="row_attivo">
 				<td colspan="2" style="text-align:center">
-					<input type="button" class="button" 
+					<input type="button" class="button"
 						onclick="users_post('#edit_form')"
 						value="accetta" />&nbsp;
 					<input type="button" class="button" onclick="users_list()" value="annulla" />
@@ -247,7 +247,7 @@ elseif(($op=="reset")&&($_SESSION["livello"]>0))
 	closedb($conn);
 
 	require_once("mail.php");
-	$from = "System Administrator <noreply@hightecservice.biz>";
+	$from = "System Administrator <info@hightecservice.biz>";
 	$to = $row["nome"]." ".$row["cognome"]." <".$row["email"].">";
 	$subject = "nuova password";
 
@@ -268,12 +268,12 @@ elseif(($op=="edit_post")&&($_SESSION["livello"]>0))
 	$attivo=(isset($_POST["attivo"])?1:0);
 	$conn=opendb();
 	$query="UPDATE utenti SET login=\"".$_POST["utente"]."\",
-				nome=\"".$_POST["nome"]."\", 
+				nome=\"".$_POST["nome"]."\",
 				cognome=\"".$_POST["cognome"]."\",
-				email=\"".$_POST["email"]."\", 
-				livello=".$_POST["livello"].", 
+				email=\"".$_POST["email"]."\",
+				livello=".$_POST["livello"].",
 				expired=$expired,
-				attivo=$attivo 
+				attivo=$attivo
 			WHERE id=\"".$_POST["user_to_edit"]."\"";
 	do_query($query,$conn);
 	closedb($conn);
@@ -288,7 +288,7 @@ elseif(($op=="add_post")&&($_SESSION["livello"]>0))
 	$query="INSERT INTO utenti(login,pass,nome,cognome,email,
 				livello,expired)
 			VALUES(\"".$_POST["utente"]."\", md5(\"$pass\"),
-				\"".$_POST["nome"]."\", 
+				\"".$_POST["nome"]."\",
 				\"".$_POST["cognome"]."\",
 				\"".$_POST["email"]."\",
 				".$_POST["livello"].", 1)";
@@ -297,7 +297,7 @@ elseif(($op=="add_post")&&($_SESSION["livello"]>0))
 
 	require_once("mail.php");
 
-	$from = "System Administrator <noreply@hightecservice.biz>";
+	$from = "System Administrator <info@hightecservice.biz>";
 	$to = $_POST["nome"]." ".$_POST["cognome"]." <".$_POST["email"].">";
 	$subject = "registratione utente";
 
@@ -314,4 +314,3 @@ elseif(($op=="add_post")&&($_SESSION["livello"]>0))
 }
 
 ?>
-
