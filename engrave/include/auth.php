@@ -3,10 +3,10 @@ require_once("const.php");
 require_once("../config.php");
 
 
-function make_key() 
+function make_key()
 {
 	$random_string = '';
-	for($i=0;$i<32;$i++) 
+	for($i=0;$i<32;$i++)
 		$random_string .= chr(rand(97,122));
 	return $random_string;
 }
@@ -41,16 +41,16 @@ function show_login()
 			</tr>
 			<tr class="middle">
 				<td height="50" class="AcqStile3" style="text-align:right;padding:0px;">
-					Password 
+					Password
 				</td>
 				<td style="white-space:nowrap;text-align:left;padding-left:5px;" align="left">
 					<input name="password" type="password" id="password" size="12" />
 				</td>
 				<td style="text-align:right;padding:0px;">
-					<input name="login" type="button" 
-						class="button" 
-						title="invia" 
-						alt="invia" 
+					<input name="login" type="button"
+						class="button"
+						title="invia"
+						alt="invia"
 						value="invia"
 						onclick="login_click('<?=$random_string?>')"
 						align="top" width="60" />
@@ -58,7 +58,7 @@ function show_login()
 			</tr>
 			<tr class="middle">
 				<td colspan="3s" style="text-align:center">
-					<div onmouseover="style.cursor='pointer'" 
+					<div onmouseover="style.cursor='pointer'"
 						style="font-size:10px;color:#666666;"
 							onclick="show_forgotten()">
 							Hai dimenticato la password?
@@ -88,13 +88,13 @@ if($op=='check')
 
 	// check their IP address..
 	if ((isset($_SESSION['remote_addr'])) &&
-			($_SERVER['REMOTE_ADDR'] == $_SESSION['remote_addr'])) 
+			($_SERVER['REMOTE_ADDR'] == $_SESSION['remote_addr']))
 		$address_is_good = true;
 	else
 		$_SESSION['remote_addr'] = $_SERVER['REMOTE_ADDR'];
 
 	// check their user agent..
-	if ((isset($_SESSION['agent'])) && 
+	if ((isset($_SESSION['agent'])) &&
 			($_SERVER['HTTP_USER_AGENT'] == $_SESSION['agent']))
 		$agent_is_good = true;
 	else
@@ -112,7 +112,7 @@ if($op=='check')
 	echo "$message";
 	die();
 }
-elseif($op=='do_logout') 
+elseif($op=='do_logout')
 {
 	$_SESSION['key']="";
 	$_SESSION['key']=get_random_string();
@@ -141,7 +141,7 @@ elseif($op=='do_login')
 	$hash=$_POST["password"];
 
 	$query="SELECT utenti.*
-			FROM utenti 
+			FROM utenti
 			WHERE login='$user' AND attivo=1";
 	$result=do_query($query,$conn);
 	$login=result_to_array($result,false);
@@ -212,9 +212,9 @@ elseif($op=="show_forgotten")
 					</tr>
 					<tr>
         				<td colspan="2" align="center">
-							<input type="button" class="button" 
+							<input type="button" class="button"
 								name="send" value="Invia" onclick="post_forgotten()">
-							<input type="button" class="button" 
+							<input type="button" class="button"
 								name="send" value="Annulla" onclick="show_login()">
 						</td>
 					</tr>
@@ -238,7 +238,7 @@ elseif($op=="post_forgotten")
 	$conn=opendb();
 	$loginuser=$_POST["user"];
 	$email=$_POST["email"];
-	$query="SELECT id,nome,cognome,login,email 
+	$query="SELECT id,nome,cognome,login,email
 		FROM utenti WHERE login='$loginuser' AND email='$email'";
 
 	$result=do_query($query,$conn);
@@ -260,7 +260,7 @@ elseif($op=="post_forgotten")
 		do_query($query,$conn);
 
 		require_once("mail.php");
-		$from = "System Administrator <noreply@hightecservice.biz>";
+		$from = "System Administrator <info@hightecservice.biz>";
 		$to = $row["nome"]." ".$row["cognome"]." <".$_POST["email"].">";
 		$subject = "invio password";
 
@@ -274,7 +274,7 @@ elseif($op=="post_forgotten")
 
 		$message="password inviata a $email";
 		$out=0;
-	}	
+	}
 	closedb($conn);
 	echo "$out$message";
 	die();
@@ -284,7 +284,7 @@ elseif($op=="show_expired")
 	<table border="0" cellspacing="0" cellpadding="0" style="margin-left:auto;margin-right:auto;">
 		<tr>
 			<td style="text-align:center;height:200px;vertical-align:middle">
-	<form name="loginform" 
+	<form name="loginform"
 			style="text-align:center;padding:0px">
 		<input type="hidden" name="id" value="<?=$_SESSION["id"]?>" />
 		<table class="AcqStile4">
@@ -298,7 +298,7 @@ elseif($op=="show_expired")
 			</tr>
 			<tr class="middle">
 				<td height="50" class="AcqStile3" style="text-align:right;padding:0px;">
-					ripeti password 
+					ripeti password
 				</td>
 				<td style="white-space:nowrap;text-align:left;padding-left:5px;" align="left">
 					<input name="password2" type="password" id="password2" size="12" />
@@ -306,12 +306,12 @@ elseif($op=="show_expired")
 			</tr>
 			<tr>
 				<td colspan="2" style="text-align:center">
-					<input name="send" type="button" 
-						title="invia" 
-						alt="invia" 
-						value="invia" 
+					<input name="send" type="button"
+						title="invia"
+						alt="invia"
+						value="invia"
 						class="button"
-						onclick="post_new_password()" 
+						onclick="post_new_password()"
 						align="top" width="60" />
 				</td>
 			</tr>
